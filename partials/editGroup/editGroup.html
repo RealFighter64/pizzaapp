@@ -1,0 +1,63 @@
+<div layout="row" flex>
+    <md-sidenav layout="column" md-is-locked-open="$mdMedia('gt-sm')" md-whiteframe="8" ng-init="init()">
+        <md-toolbar class="md-hue-9">
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button">
+                    <md-icon>add</md-icon>
+                </md-button>
+                <h2><span>Items</span></h2>
+            </div>
+        </md-toolbar>
+        <md-list>
+            <md-list-item class="md-3-line" ng-repeat="item in group.list">
+                <div class="md-list-item-text">
+                    <h3>{{item.size}} Pizza</h3>
+                    <h4>{{item.base}} Base</h4>
+                    <p>
+                        Toppings:
+                        <span ng-repeat="topping in item.toppings">{{topping}}, </span>
+                    </p>
+                </div>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+        </md-list>
+        <span flex></span>
+        <md-button ng-click="populateItems()" class="md-primary">Refresh List</md-button>
+    </md-sidenav>
+    <div layout="column" flex>
+        <md-content md-theme="docs-dark" layout="row">
+            <div class="md-inline-form" layout="column" flex layout-padding>
+                <md-input-container style="margin: 0">
+                    <label>Size</label>
+                    <input ng-model="item.size">
+                </md-input-container>
+                <md-input-container style="margin: 0">
+                    <label>Base</label>
+                    <input ng-model="item.base">
+                </md-input-container>
+                <md-input-container style="margin: 0">
+                    <label>Toppings</label>
+                    <md-chips ng-model="selectedToppings" md-removable="true" md-enable-chip-edit="true" md-require-match="false" md-autocomplete-snap md-transform-chip="transformChip($chip)">
+                        <md-autocomplete md-search-text="searchText" md-items="topping in querySearch(searchText)" md-item-text="toppings" placeholder="Search for a topping" md-selected-item="selectedItem">
+                            <span md-highlight-text="searchText">{{topping.name}} :: {{topping.type}}</span>
+                        </md-autocomplete>
+                        <md-chip-template>
+                            <span>
+                            <strong>{{$chip.name}}</strong>
+                            <em>({{$chip.type}})</em>
+                        </span>
+                        </md-chip-template>
+                    </md-chips>
+                </md-input-container>
+                <md-button class="md-primary md-raised" ng-click="addItem()">Create Item!</md-button>
+            </div>
+        </md-content>
+        <span flex></span>
+        <md-content md-theme="docs" layout-padding>
+            <md-input-container>
+                <label>Your Id:</label>
+                <input readonly value="{{id}}">
+            </md-input-container>
+        </md-content>
+    </div>
+</div>

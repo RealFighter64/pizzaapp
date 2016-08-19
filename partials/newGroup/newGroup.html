@@ -1,0 +1,25 @@
+<md-toolbar class="md-default md-hue-1">
+    <div class="md-toolbar-tools">
+        <h2><span>New Group</span></h2>
+    </div>
+</md-toolbar>
+<div class="md-inline-form">
+    <form name="groupForm">
+        <md-content layout="column" layout-padding class="md-primary" md-theme="docs-dark">
+            <div layout-gt-xs="row" layout-xs="column">
+                <md-input-container style="margin: 0;" flex-gt-xs>
+                    <label>Group Name</label>
+                    <input ng-model="group.name">
+                </md-input-container>
+                <md-input-container style="margin: 0;" flex-gt-xs>
+                    <label>Group Password</label>
+                    <input ng-model="group.password" type="password">
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <span flex></span>
+                <md-button class="md-raised md-accent" ng-click="createGroup(group.name, group.password)">Create Group</md-button>
+            </div>
+        </md-content>
+    </form>
+</div>

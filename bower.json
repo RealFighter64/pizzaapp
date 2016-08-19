@@ -1,0 +1,27 @@
+{
+  "name": "pizzainmytummy",
+  "homepage": "https://github.com/RealFighter64/pizzainmytummy",
+  "authors": [
+    "RealFighter64 <realfighter64@gmail.com>"
+  ],
+  "description": "The number one pizza ordering app.",
+  "main": "",
+  "keywords": [
+    "pizza",
+    "app",
+    "order"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.0.9",
+    "angular-route": "^1.5.8",
+    "jquery": "^3.1.0"
+  }
+}
